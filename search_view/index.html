@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>青空文庫検索サービス</title>
+  <link rel="stylesheet" href="main.css">
+
+  <!-- Load required Bootstrap and BootstrapVue CSS -->
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+</head>
+
+<body>
+  <div id="app">
+
+    <font size="5">青空文庫検索サービス</font>
+
+    <b-form @submit.prevent="doSearch">
+      <b-form-group label="著者名" placeholder="Enter Author">
+        <b-form-input v-model="form.author"></b-form-input>
+      </b-form-group>
+      <b-form-group label="タイトル" placeholder="Enter Title">
+        <b-form-input v-model="form.title"></b-form-input>
+      </b-form-group>
+      <b-button type="submit" variant="primary">検索</b-button>
+    </b-form>
+
+    （{{ results.length }} 件を表示）
+
+    <table>
+      <thead>
+        <tr>
+          <th class="id">ID</th>
+          <th class="comment">作品名</th>
+          <th class="author">著者</th>
+          <th class="state">検索スコア</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr v-for="item in results" v-bind:key="item.id">
+              <th>{{ item.id }}</th>
+              <td>{{ item.title }}</td>
+              <td>{{ item.author }}</td>
+              <td>{{ item.score}}</td>
+          </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+
+  <script src="main.js"></script>
+</html>

@@ -1,0 +1,26 @@
+{
+    "mappings": {
+        "properties": {
+          "title": {
+            "type": "text",
+            "analyzer": "kuromoji",
+            "fielddata": true
+          },
+          "title_yomi": {
+            "type": "text",
+            "analyzer": "kuromoji",
+            "fielddata": true
+          },
+          "author": {
+            "type": "text",
+            "analyzer": "kuromoji",
+            "fielddata": true
+          },
+          "author_yomi": {
+            "type": "text",
+            "analyzer": "kuromoji",
+            "fielddata": true
+          }
+      }
+    }
+}

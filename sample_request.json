@@ -1,0 +1,10 @@
+{
+"query": {
+    "bool": { 
+      "should": [
+        {"match": { "title": "アリス" } },
+        {"match": { "author": "大久保" } }
+      ]
+    }
+  }
+}
